@@ -2,11 +2,11 @@
 
 const country = "Turkey";
 const continent = "Europe";
-let populationTurkey = 84340000;
+let population = 84340000;
 
 console.log(country);
 console.log(continent);
-console.log(populationTurkey);
+console.log(population);
 
 // LECTURE: Data Types
 
@@ -15,30 +15,33 @@ let language;
 
 console.log(typeof country);
 console.log(typeof continent);
-console.log(typeof populationTurkey);
+console.log(typeof population);
 console.log(typeof isIsland);
 console.log(typeof language);
 
 // LECTURE: let, const and var
 
 language = "Turkish";
-populationTurkey = 90000000;
+population = 90000000;
 
 // LECTURE: Basic Operators
 
-let halfPopulation = populationTurkey / 2;
-console.log(halfPopulation);
+let half = population / 2;
+console.log(half);
 
-populationTurkey++;
-console.log(populationTurkey);
+population++;
+console.log(population);
+
+population--;
+console.log(population);
 
 let populationFinland = 6000000;
-let whichIsTurkeyFinland = populationTurkey > populationFinland;
-console.log(whichIsTurkeyFinland);
+let whichIsBigger = population > populationFinland;
+console.log(whichIsBigger);
 
-let populationAverage = 33000000;
-let whichIsTurkeyAverage = populationTurkey < populationAverage;
-console.log(whichIsTurkeyAverage);
+let average = 33000000;
+let isAverageBigger = population < average;
+console.log(isAverageBigger);
 
 let description =
   country +
@@ -50,7 +53,7 @@ let description =
   " " +
   "and its" +
   " " +
-  populationTurkey +
+  population +
   " " +
   "million people speak" +
   " " +
@@ -60,5 +63,34 @@ console.log(description);
 
 // LECTURE: Strings and Template Literals
 
-description = `${country} is in ${continent}, and its ${populationTurkey} million people speak ${language}.`;
+description = `${country} is in ${continent}, and its ${population} million people speak ${language}.`;
 console.log(description);
+
+// LECTURE: Taking Decisions: if / else Statements
+
+population = 33000000;
+
+if (population > average) {
+  console.log(`${country}'s population is above average.`);
+} else {
+  console.log(`${country}'s population is ${(average - population) / 1000000} million below average.`);
+}
+
+// LECTURE: Type Conversion and Coercion
+
+let n;
+
+n = "9" - "5"; // 4
+console.log(n);
+
+n = "19" - "13" - "17"; // -11
+console.log(n);
+
+n = "19" - "13" + 17; // 23
+console.log(n);
+
+n = "123" < 57; // false
+console.log(n);
+
+n = 5 + 6 + "4" + 9 - 4 - 2; // 1143
+console.log(n);
