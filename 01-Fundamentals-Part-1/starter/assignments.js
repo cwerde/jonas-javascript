@@ -73,7 +73,11 @@ population = 33000000;
 if (population > average) {
   console.log(`${country}'s population is above average.`);
 } else {
-  console.log(`${country}'s population is ${(average - population) / 1000000} million below average.`);
+  console.log(
+    `${country}'s population is ${
+      (average - population) / 1000000
+    } million below average.`
+  );
 }
 
 // LECTURE: Type Conversion and Coercion
