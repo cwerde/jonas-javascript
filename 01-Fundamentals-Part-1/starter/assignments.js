@@ -26,6 +26,7 @@ population = 90000000;
 
 // LECTURE: Basic Operators
 
+/*
 let half = population / 2;
 console.log(half);
 
@@ -60,14 +61,18 @@ let description =
   language +
   ".";
 console.log(description);
+*/
 
 // LECTURE: Strings and Template Literals
 
+/*
 description = `${country} is in ${continent}, and its ${population} million people speak ${language}.`;
 console.log(description);
+*/
 
 // LECTURE: Taking Decisions: if / else Statements
 
+/*
 population = 33000000;
 
 if (population > average) {
@@ -79,9 +84,11 @@ if (population > average) {
     } million below average.`
   );
 }
+*/
 
 // LECTURE: Type Conversion and Coercion
 
+/*
 let n;
 
 n = "9" - "5"; // 4
@@ -108,4 +115,20 @@ if (numNeighbours === 1) {
   console.log("More than 1 border.");
 } else {
   console.log("No borders.");
+}
+*/
+
+// LECTURE: Logical Operators
+
+const isEnglish = Boolean(language == "English");
+const lessThan = Boolean(population < 50000000);
+
+console.log(`A country that speaks English: ${isEnglish}`);
+console.log(`A country that has less than 50 million people: ${lessThan}`);
+console.log(`A country that is not an island: ${isIsland}`);
+
+if (isEnglish && lessThan && !isIsland) {
+  console.log(`You should live in ${country} :)`);
+} else {
+  console.log(`${country} does not meet your criteria :(`);
 }
