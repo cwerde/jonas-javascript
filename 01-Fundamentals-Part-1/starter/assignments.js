@@ -132,3 +132,36 @@ if (isEnglish && lessThan && !isIsland) {
 } else {
   console.log(`${country} does not meet your criteria :(`);
 }
+
+// LECTURE: The switch Statement
+language = "Turkish";
+
+switch (language) {
+  case "Chinese":
+  case "Mandarin":
+    console.log("MOST number of native speakers");
+    break;
+
+  case "Spanish":
+    console.log("2nd place in number of native speakers");
+    break;
+
+  case "English":
+    console.log("3rd place in number of native speakers");
+    break;
+
+  case "Hindi":
+    console.log("4th most spoken language");
+    break;
+
+  case "Arabic":
+    console.log("5th most spoken language");
+    break;
+
+  default:
+    console.log("Great language too :D");
+    break;
+}
+
+// LECTURE: The Conditional (Ternary) Operator
+population > 33000000 ? console.log(`${country}'s population is above average.`) : console.log(`${country}'s population is below average.`);
