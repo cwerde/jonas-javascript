@@ -1,0 +1,177 @@
+// LECTURE: Functions
+/*
+  1. Write a function called 'describeCountry' which takes three parameters:
+  'country', 'population' and 'capitalCity'. Based on this input, the
+  function returns a string with this format: 'Finland has 6 million people and its
+  capital city is Helsinki'
+
+  2. Call this function 3 times, with input data for 3 different countries. Store the
+  returned values in 3 different variables, and log them to the console
+*/
+
+/*
+function describeCountry(country, population, capitalCity) {
+  const theCountry = `${country} has ${population / 1000000} million people and its capital city is ${capitalCity}.`;
+  return theCountry;
+}
+
+
+// function describeCountry(country, population, capitalCity) {
+//   return `${country} has ${population / 1000000} million people and its capital city is ${capitalCity}.`;
+// }
+
+const country1 = describeCountry("Turkey", 84300000, "Ankara");
+console.log(country1);
+
+const country2 = describeCountry("England", 56000000, "London");
+console.log(country2);
+
+const country3 = describeCountry("Portugal", 10300000, "Lisbon");
+console.log(country3);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Function Declarations vs. Expressions
+
+/*
+  1. The world population is 7900 million people. Create a function declaration
+  called 'percentageOfWorld1' which receives a 'population' value, and
+  returns the percentage of the world population that the given population
+  represents. For example, China has 1441 million people, so it's about 18.2% of
+  the world population
+
+  2. To calculate the percentage, divide the given 'population' value by 7900
+  and then multiply by 100
+
+  3. Call 'percentageOfWorld1' for 3 populations of countries of your choice,
+  store the results into variables, and log them to the console
+
+  4. Create a function expression which does the exact same thing, called
+  'percentageOfWorld2', and also call it with 3 country populations (can be
+  the same populations)
+*/
+
+/*
+const worldPopulation = 7900;
+
+function percentageOfWorld1(country, population) {
+  const percentage = (population / worldPopulation) * 100
+  const countryPercentage = `${country}'s population is ${percentage}% of the world.`;
+  return countryPercentage;
+}
+
+const percentageDec1 = percentageOfWorld1("Turkey", 84.3);
+console.log(percentageDec1);
+
+const percentageDec2 = percentageOfWorld1("England", 56);
+console.log(percentageDec2);
+
+const percentageDec3 = percentageOfWorld1("Portugal", 10.3);
+console.log(percentageDec3);
+
+const percentageOfWorld2 = function (country, population) {
+  const percentage = (population / worldPopulation) * 100;
+  const countryPercentage = `${country}'s population is ${percentage}% of the world.`;
+  return countryPercentage;
+}
+
+const percentageExp1 = percentageOfWorld2("Turkey", 84.3);
+console.log(percentageExp1);
+
+const percentageExp2 = percentageOfWorld2("England", 56);
+console.log(percentageExp2);
+
+const percentageExp3 = percentageOfWorld2("Portugal", 10.3);
+console.log(percentageExp3);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Arrow Functions
+/*
+  1. Recreate the last assignment, but this time create an arrow function called
+  'percentageOfWorld3'
+*/
+
+/*
+const percentageOfWorld3 = (country, population) => {
+  const percentage = (population / worldPopulation) * 100;
+  const countryPercentage = `${country}'s population is ${percentage}% of the world.`;
+  return countryPercentage;
+}
+
+const percentageArr1 = percentageOfWorld3("Turkey", 84.3);
+console.log(percentageArr1);
+
+const percentageArr2 = percentageOfWorld3("England", 56);
+console.log(percentageArr2);
+
+const percentageArr3 = percentageOfWorld3("Portugal", 10.3);
+console.log(percentageArr3);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Functions Calling Other Functions
+
+/*
+  1. Create a function called 'describePopulation'. Use the function type you
+  like the most. This function takes in two arguments: 'country' and
+  'population', and returns a string like this: 'China has 1441 million people,
+  which is about 18.2% of the world.'
+
+  2. To calculate the percentage, 'describePopulation' call the
+  'percentageOfWorld1' you created earlier
+
+  3. Call 'describePopulation' with data for 3 countries of your choice
+*/
+
+/*
+const worldPopulation = 7900;
+
+function percentageOfWorld1(population) {
+  const percentage = (population / worldPopulation) * 100;
+  return percentage;
+}
+
+const describePopulation = function (country, population) {
+  const percentage = percentageOfWorld1(population);
+  const description = `${country} has ${population} people, which is about ${percentage}% of the world.`;
+  return description;
+}
+
+const country1 = describePopulation("Turkey", 84.3);
+console.log(country1);
+
+const country2 = describePopulation("England", 56);
+console.log(country2);
+
+const country3 = describePopulation("Portugal", 10.3);
+console.log(country3);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Introduction to Arrays
+
+/*
+  1. Create an array containing 4 population values of 4 countries of your choice.
+  You may use the values you have been using previously. Store this array into a
+  variable called 'populations'
+
+  2. Log to the console whether the array has 4 elements or not (true or false)
+
+  3. Create an array called 'percentages' containing the percentages of the
+  world population for these 4 population values. Use the function
+  'percentageOfWorld1' that you created earlier to compute the 4
+  percentage values
+*/
