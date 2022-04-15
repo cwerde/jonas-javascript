@@ -175,3 +175,103 @@ console.log(country3);
   'percentageOfWorld1' that you created earlier to compute the 4
   percentage values
 */
+
+/*
+const worldPopulation = 1441;
+const percentageOfWorld1 = function (population) {
+  return (population / worldPopulation) * 100;
+}
+
+const populations = [84.34, 55.98, 10.31, 83.24];
+console.log(populations)
+console.log(Boolean(populations.length >= 4));
+
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+console.log(percentages);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Basic Array Operations (Methods)
+
+/*
+  1. Create an array containing all the neighbouring countries of a country of your
+  choice. Choose a country which has at least 2 or 3 neighbours. Store the array
+  into a variable called 'neighbours'
+
+  2. At some point, a new country called 'Utopia' is created in the neighbourhood of
+  your selected country. So add it to the end of the 'neighbours' array
+
+  3. Unfortunately, after some time, the new country is dissolved. So remove it from
+  the end of the array
+
+  4. If the 'neighbours' array does not include the country ‘Germany’, log to the
+  console: 'Probably not a central European country :D'
+
+  5. Change the name of one of your neighbouring countries. To do that, find the
+  index of the country in the 'neighbours' array, and then use that index to
+  change the array at that index position. For example, you can search for
+  'Sweden' in the array, and then replace it with 'Republic of Sweden'.
+*/
+
+/*
+const neighbours = ["Bulgaria", "Greece", "Syria", "Iraq", "Iran", "Azerbaijan", "Armenia", "Georgia"];
+console.log(neighbours);
+
+neighbours.push("Utopia");
+console.log(neighbours);
+
+neighbours.pop();
+console.log(neighbours);
+
+if (!neighbours.includes("Germany")) console.log("Probably not a central European country :D");
+
+neighbours[neighbours.indexOf("Bulgaria")] = "Republic of Bulgaria";
+neighbours[neighbours.indexOf("Greece")] = "Hellenic Republic";
+neighbours[neighbours.indexOf("Syria")] = "Syrian Arab Republic";
+neighbours[neighbours.indexOf("Iraq")] = "Republic of Iraq";
+neighbours[neighbours.indexOf("Iran")] = "Islamic Republic of Iran";
+neighbours[neighbours.indexOf("Azerbaijan")] = "Republic of Azerbaijan";
+neighbours[neighbours.indexOf("Armenia")] = "Republic of Armenia";
+neighbours[neighbours.indexOf("Georgia")] = "Republic of Georgia";
+console.log(neighbours);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Introduction to Objects
+
+/*
+  1. Create an object called 'myCountry' for a country of your choice, containing
+  properties 'country', 'capital', 'language', 'population' and
+  'neighbours' (an array like we used in previous assignments)
+*/
+
+/*
+const myCountry = {
+  country: "Turkey",
+  capital: "Ankara",
+  language: "Turkish",
+  population: 84.34,
+  neighbours: [
+    "Bulgaria",
+    "Greece",
+    "Syria",
+    "Iraq",
+    "Iran",
+    "Azerbaijan",
+    "Armenia",
+    "Georgia"
+  ]
+}
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// LECTURE: Dot vs. Bracket Notation
