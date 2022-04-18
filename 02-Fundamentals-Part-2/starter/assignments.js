@@ -330,3 +330,44 @@ method will set a new property on the object, called 'isIsland'.
 'isIsland' will be true if there are no neighbouring countries, and false if
 there are. Use the ternary operator to set the property.
 */
+
+/*
+const myCountry = {
+  country: "Turkey",
+  capital: "Ankara",
+  language: "Turkish",
+  population: 84.34,
+  neighbours: [
+    "Bulgaria",
+    "Greece",
+    "Syria",
+    "Iraq",
+    "Iran",
+    "Azerbaijan",
+    "Armenia",
+    "Georgia",
+  ],
+
+  checkIsland: function () {
+    this.isIsland = this.neighbours.length === 0 ? true : false;
+    return this.isIsland;
+  },
+
+  describe: function () {
+    console.log(
+      `${this.country} has ${this.population} million ${
+        this.language
+      }-speaking people, ${
+        this.neighbours.length
+      } neighbouring countries and a capital called ${this.capital} and is ${
+        this.isIsland ? "an" : "not an"
+      } island.`
+    );
+  },
+};
+
+// ŞU AMINA KODUĞUMUN MÜLKÜNÜ ÇAĞIRMAZSAN ÇALIŞMAZ AMK!!!
+myCountry.checkIsland();
+myCountry.describe();
+console.log(myCountry);
+*/

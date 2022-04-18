@@ -335,8 +335,6 @@ const jonas = {
   friends: ["Michael", "Peter", "Steven"],
   hasDriversLicense: true,
 
-
-
   // calcAge: function (birthYear) {
   //   return 2037 - birthYear;
   // }
@@ -352,8 +350,10 @@ const jonas = {
   },
 
   getSummary: function () {
-    return `${this.firstName} is a ${this.age}-year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
-  }
+    return `${this.firstName} is a ${this.age}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
+  },
 };
 
 // console.log(jonas.calcAge(1991));
@@ -361,6 +361,9 @@ const jonas = {
 
 // console.log(jonas.calcAge(jonas.birthYear));
 // console.log(jonas["calcAge"](jonas["birthYear"]));
+
+// ŞU AMINA KODUĞUMUN MÜLKÜNÜ ÇAĞIRMAZSAN ÇALIŞMAZ AMK!!!
+jonas.calcAge();
 
 console.log(jonas.calcAge());
 
