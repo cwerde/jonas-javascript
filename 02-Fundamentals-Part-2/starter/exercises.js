@@ -225,3 +225,40 @@ if (mark.bmiValue > john.bmiValue) {
   
   GOOD LUCK 😀
 */
+
+/*
+const calcTips = function (bills) {
+  if (bills >= 50 && bills <= 300) {
+    const tips = bills * 0.15;
+    return tips;
+  } else {
+    const tips = bills * 0.20;
+    return tips;
+  }
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (i = 0; i < bills.length; i++) {
+  tips.push(calcTips(bills[i]));
+  totals.push(bills[i] + calcTips(bills[i]));
+}
+
+console.log("Bills: ", bills);
+console.log("Tips: ", tips);
+console.log("Totals: ", totals);
+
+// BONUS
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++)
+    sum += arr[i];
+  const average = sum / arr.length;
+  return average;
+}
+
+const average = calcAverage(totals);
+console.log(`AVERAGE = ${average}`);
+*/
