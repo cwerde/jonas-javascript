@@ -202,3 +202,72 @@ var addArrow = (a, b) => {
 addArrow(2, 5);
 addArrow(2, 5, 8, 12);
 */
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+// Lecture 99: Primitives vs. Objects (Primitives vs. Reference Types)
+
+/*
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: "Jonas",
+  age: 30,
+}
+const friend = me;
+friend.age = 27;
+console.log("Friend: ", friend);
+console.log("Me: ", me);
+*/
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+// Lecture 100: Primitives vs. Objects in Practice
+
+/*
+// Primitive types
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davis";
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
+
+console.log("Before marriage: ", jessica);
+console.log("After marriage: ", marriedJessica);
+// marriedJessica = {};
+
+// Copying objects
+const jessicaNew = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27,
+  family: ["Alice", "Bob"],
+};
+const marriedJessicaNew = Object.assign({}, jessicaNew);
+marriedJessicaNew.lastName = "Davis";
+
+console.log("Before marriage: ", jessicaNew);
+console.log("After marriage: ", marriedJessicaNew);
+
+marriedJessicaNew.family.push("Mary");
+marriedJessicaNew.family.push("John");
+
+console.log("Before marriage: ", jessicaNew);
+console.log("After marriage: ", marriedJessicaNew);
+*/
