@@ -51,9 +51,6 @@ const restaurant = {
 };
 
 ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-
 // Lecture 103: Destructuring Arrays
 
 /*
@@ -110,9 +107,6 @@ console.log(p, q, r); // 8 1 1
 */
 
 ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-
 // Lecture 104: Destructuring Objects
 
 /*
@@ -180,9 +174,6 @@ console.log(o, c);
 */
 
 ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-
 // Lecture 105: The Spread Operator (...)
 
 /*
@@ -238,9 +229,6 @@ console.log(restaurant.name);
 */
 
 ////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////
-
 // Lecture 106: Rest Pattern and Parameters
 
 /*
@@ -284,4 +272,51 @@ add(...x);
 
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 restaurant.orderPizza("mushrooms");
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 107: Short Circuiting (&& and ||)
+
+/*
+// Use ANY data type, return ANY data type, short-circuiting
+console.log("---- OR ----");
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+
+// restaurant.numGuests = 0; // If it is 0, it is a problem now.
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log("---- AND ----");
+console.log(0 && "Jonas");
+console.log(7 && "Jonas");
+
+console.log("Hello" && 23 && null && "Jonas");
+
+// Practical Example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach")
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 108: The Nullish Coalescing Operator (??)
+
+/*
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or "")
+const guestsCorrect = restaurant.numGuests ?? 10; // ?? operatörü hata veriyor.
+console.log(guestsCorrect);
 */
