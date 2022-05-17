@@ -233,10 +233,10 @@ console.log(restaurant.name);
 
 /*
 // 1) Destructuring
-// SPREAD, because on RIGHT side of = 
+// SPREAD, because on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
 
-// REST, because on LEFT side of = 
+// REST, because on LEFT side of =
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
 
@@ -287,7 +287,8 @@ console.log(undefined || null);
 
 console.log(undefined || 0 || "" || "Hello" || 23 || null);
 
-// restaurant.numGuests = 0; // If it is 0, it is a problem now.
+// restaurant.numGuests = 0;
+// Sıfır (0) bir falsy değer olduğu için program istenilen sonucu vermez.
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1);
 
@@ -317,6 +318,42 @@ const guests = restaurant.numGuests || 10;
 console.log(guests);
 
 // Nullish: null and undefined (NOT 0 or "")
-const guestsCorrect = restaurant.numGuests ?? 10; // ?? operatörü hata veriyor.
+const guestsCorrect = restaurant.numGuests ?? 10;
 console.log(guestsCorrect);
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 109: Logical Assignment Operators
+
+/*
+// OR assignment operator
+
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi",
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && "<ANONYMOUS>";
+// rest2.owner = rest2.owner && "<ANONYMOUS>";
+rest1.owner &&= "<ANONYMOUS>";
+rest2.owner &&= "<ANONYMOUS>";
+
+console.log(rest1);
+console.log(rest2);
 */
