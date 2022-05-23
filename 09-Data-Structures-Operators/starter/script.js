@@ -4,35 +4,45 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
   // Before ES6 object literals
-  // thu: {
-  //   open: 12,
-  //   close: 22,
-  // },
-  // fri: {
-  //   open: 11,
-  //   close: 23,
-  // },
-  // sat: {
-  //   open: 0, // Open 24 hours
-  //   close: 24,
-  // },
+
+  /*
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+  */
 
   // After ES6 enhanced object literals
   [weekdays[3]]: {
     open: 12,
     close: 22,
   },
+
   [weekdays[4]]: {
     open: 11,
     close: 23,
   },
+
   [`day-${2 + 4}`]: {
     open: 0, // Open 24 hours
     close: 24,
+  },
+
+  [weekdays[5]]: {
+    open: 0,
+    close: 12 + 12,
   },
 };
 
@@ -45,10 +55,12 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
   // Before ES6 object literals
-  // openingHours: openingHours,
-  // order: function (starterIndex, mainIndex) {
-  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  // },
+  /*
+  openingHours: openingHours,
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  */
 
   // After ES6 enhanced object literals
   openingHours,
@@ -57,17 +69,16 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = "20:00",
-    address,
-  }) {
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`);
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+    );
   },
 
   orderPasta(ing1, ing2, ing3) {
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`);
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}.`
+    );
   },
 
   orderPizza(mainIngredients, ...otherIngredients) {
@@ -315,7 +326,7 @@ console.log(undefined || 0 || "" || "Hello" || 23 || null);
 
 // restaurant.numGuests = 0;
 // Sıfır (0) bir falsy değer olduğu için program istenilen sonucu vermez.
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+const guests1 = restaurant.numGuests?restaurant.numGuests : 10;
 console.log(guests1);
 
 const guests2 = restaurant.numGuests || 10;
@@ -405,4 +416,39 @@ for (const [i, el] of menu.entries()) {
 
 ////////////////////////////////////////////////////////////
 // Lecture 112: Enhanced Object Literals
-// Üst tarafta restaurant objesinin içerisinde yapıldı bu ders.
+
+/*
+  This lecture was studied in "openingHours" and "restaurant" objects above.
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 113: Optional Chaining (?.)
+
+/*
+// WITHOUT optional chaining
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// WITH optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Real-world example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}.`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist!');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist!');
+
+// Arrays
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+console.log(users[0]?.name ?? 'User array is empty.');
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 114: Looping Objects: Object Keys, Values and Entries
