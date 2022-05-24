@@ -35,11 +35,6 @@ const openingHours = {
     close: 23,
   },
 
-  [`day-${2 + 4}`]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-
   [weekdays[5]]: {
     open: 0,
     close: 12 + 12,
@@ -452,3 +447,42 @@ console.log(users[0]?.name ?? 'User array is empty.');
 
 ////////////////////////////////////////////////////////////
 // Lecture 114: Looping Objects: Object Keys, Values and Entries
+
+/*
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+console.log(`We are open on ${properties.length} days.`);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
+
+for (const day of properties) {
+  console.log(day);
+}
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const x of entries) {
+  console.log(x);
+}
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}.`);
+}
+*/
