@@ -486,3 +486,8 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}.`);
 }
 */
+
+// TASK #1
+for (const [x, y] of game.scored.entries()) {
+  console.log(`Goal ${x + 1}: ${y}`);
+}
