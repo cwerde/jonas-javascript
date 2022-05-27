@@ -181,3 +181,8 @@ team1 > team2 && console.log("Team 2 is more likely to win.");
   
   GOOD LUCK 😀
 */
+
+// TASK #1
+for (const [x, y] of game.scored.entries()) {
+  console.log(`Goal ${x + 1}: ${y}`);
+}
