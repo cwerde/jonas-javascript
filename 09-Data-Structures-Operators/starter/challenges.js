@@ -182,7 +182,42 @@ team1 > team2 && console.log("Team 2 is more likely to win.");
   GOOD LUCK 😀
 */
 
+/*
 // TASK #1
-for (const [x, y] of game.scored.entries()) {
-  console.log(`Goal ${x + 1}: ${y}`);
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
 }
+
+// TASK #2
+let sum = 0;
+const values = Object.values(game.odds);
+
+for (const [i, j] of values.entries()) {
+  sum += j;
+  if (i === values.length - 1) {
+    let avg = sum / values.length;
+    console.log(`Sum: ${sum}\nAvg: ${avg}`);
+  }
+}
+
+// TASK #3
+const odds = Object.values(game.odds);
+for (const odd of odds.keys()) {
+  if (odd !== 0)
+    console.log(
+      `Odds of victory ${game[`team${odd}`]}: ${game.odds[`team${odd}`]}`
+    );
+  if (odd === 1) console.log(`Odds of draw: ${game.odds.x}`);
+}
+
+// TASK #4
+game.scorers = {};
+for (const x of game.scored) {
+  if (!game.scorers[`${x}`]) {
+    game.scorers[`${x}`] = 1;
+  } else {
+    game.scorers[`${x}`] += 1;
+  }
+}
+console.log(game.scorers);
+*/
