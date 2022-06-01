@@ -302,9 +302,9 @@ insert the elements), and conversion will happen when the button is pressed.
 
 Test data (pasted to textarea, including spaces):
 underscore_case
-first_name
+ first_name
 Some_Variable
-calculate_AGE
+  calculate_AGE
 delayed_departure
 
 Should produce this output (5 separate console.log outputs):
@@ -324,7 +324,29 @@ you're stuck. Then pause and continue!
 
 Afterwards, test with your own test data!
 GOOD LUCK 😀
+*/
 
+/*
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
+
+const btn = document.querySelector('button');
+
+const toCamelCase = function () {
+  const text = document.querySelector('textarea').value;
+
+  const array = text.split('\n');
+  const newArray = [];
+
+  for (const index of array) {
+    const [a, b] = index.trim().toLowerCase().split('_');
+    const variable = a + b[0].toUpperCase() + b.slice(1);
+    newArray.push(variable);
+    console.log(
+      `${variable.padEnd(20)} ${'✅'.repeat(array.indexOf(index) + 1)}`
+    );
+  }
+};
+
+btn.addEventListener('click', toCamelCase);
 */
