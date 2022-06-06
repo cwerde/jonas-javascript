@@ -1,5 +1,6 @@
 'use strict';
 
+////////////////////////////////////////////////////////////
 // Lecture 128: Default Parameters
 
 /*
@@ -33,6 +34,7 @@ createBooking('LH123', 1000);
 createBooking('LH123', undefined, 1000);
 */
 
+////////////////////////////////////////////////////////////
 // Lecture 129: How Passing Arguments Works: Value vs. Reference
 
 /*
@@ -68,3 +70,59 @@ const newPassport = function (person) {
 newPassport(jonas);
 checkIn(flight, jonas);
 */
+
+////////////////////////////////////////////////////////////
+// Lecture 131: Functions Accepting Callback Functions
+
+/*
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function (str, func) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${func(str)}`);
+  console.log(`Transformed by: ${func.name}`);
+  console.log('\n');
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+// JavaScript uses callbacks all the time
+const high5 = function () {
+  console.log('👋');
+};
+
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 132: Functions Accepting Callback Functions
+
+/*
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Steven');
+
+greet('Hello')('Jonas');
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Merhaba')('Uğur');
+*/
+
+////////////////////////////////////////////////////////////
+// Lecture 133: The call and apply Methods
