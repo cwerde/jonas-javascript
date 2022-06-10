@@ -1,3 +1,5 @@
+// Lecture 10: Values and Variables
+
 /*
 let js = "amazing";
 console.log(40 + 8 + 23 - 10);
@@ -24,8 +26,10 @@ let job1 = "Programmer";
 let job2 = "Teacher";
 
 console.log(myFirstJob);
-
 */
+
+//////////////////////////////////////////////////
+// Lecture 12: Data Types
 
 /*
 let javascriptIsFun = true;
@@ -50,6 +54,9 @@ console.log(typeof year);
 console.log(typeof null);
 */
 
+//////////////////////////////////////////////////
+// Lecture 13: let, const and var
+
 /*
 let age = 30;
 age = 31;
@@ -64,6 +71,9 @@ job = "teacher";
 lastName = "Schmedtmann";
 console.log(lastName);
 */
+
+//////////////////////////////////////////////////
+// Lecture 14: Basic Operators
 
 /*
 // Math Operators
@@ -97,6 +107,9 @@ const isFullAge = ageSarah >= 18;
 console.log(now - 1991 > now - 2018);
 */
 
+//////////////////////////////////////////////////
+// Lecture 15: Operator Precedence
+
 /*
 const now = 2037;
 const ageJonas = now - 1991;
@@ -113,6 +126,9 @@ console.log(x, y);
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge);
 */
+
+//////////////////////////////////////////////////
+// Lecture 17: Strings and Template Literals
 
 /*
 const firstName = "Jonas";
@@ -142,6 +158,9 @@ multiple
 lines`);
 */
 
+//////////////////////////////////////////////////
+// Lecture 18: Taking Decisions: if / else Statements
+
 /*
 // Ehliyet sınavı kontrol etmek
 
@@ -166,6 +185,9 @@ if (birthYear <= 2000) {
 
 console.log(century);
 */
+
+//////////////////////////////////////////////////
+// Lecture 20: Type Conversion and Coercion
 
 /*
 // Type Conversion
@@ -196,6 +218,9 @@ n = "10" - "4" - "3" - 2 + "5";
 console.log(n);
 */
 
+//////////////////////////////////////////////////
+// Lecture 21: Truthy and Falsy Values
+
 /*
 // 5 falsy values: 0, "", undefined, null, NaN
 // We don't include "false" to the falsy values because false is false.
@@ -223,6 +248,9 @@ if (height) {
 }
 */
 
+//////////////////////////////////////////////////
+// Lecture 22: Equality Operators: == vs. ===
+
 /*
 const age = 18;
 if (age === 18) console.log("You just became an adult :D (strict)");
@@ -246,6 +274,9 @@ if (favourite === 23) {
 
 if (favourite !== 23) console.log("Why not 23?");
 */
+
+//////////////////////////////////////////////////
+// Lecture 24: Logical Operators
 
 /*
 const hasDriversLicense = true; // A
@@ -272,6 +303,9 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
   console.log("Someone else should drive...");
 }
 */
+
+//////////////////////////////////////////////////
+// Lecture 26: The switch Statement
 
 /*
 const day = "Friday";
@@ -319,4 +353,43 @@ if (day === "Monday") {
 } else {
   console.log("Not a valid day!");
 }
+*/
+
+//////////////////////////////////////////////////
+// Lecture 27: Statements and Expressions
+
+/*
+3 + 4;
+1991;
+true && false && !false;
+
+if (23 > 10) {
+  const str = `23 is bigger`;
+}
+
+const me = "Jonas";
+console.log(`I'm ${2037 - 1991} years old ${me}`);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 28: The Conditional (Ternary) Operator
+
+/*
+const age = 23;
+age >= 18
+  ? console.log("I like to drink wine 🍷")
+  : console.log("I like to drink water 💧");
+
+const drink1 = age >= 18 ? "wine 🍷" : "water 💧";
+console.log(drink1);
+
+let drink2;
+if (age >= 18) {
+  drink2 = "wine 🍷";
+} else {
+  drink2 = "water 💧";
+}
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? "wine 🍷" : "water 💧"}`);
 */
