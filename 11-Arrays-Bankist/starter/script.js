@@ -65,6 +65,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
+/*
 const currencies = new Map([
   ['USD', 'United States dollar'],
   ['EUR', 'Euro'],
@@ -72,6 +73,7 @@ const currencies = new Map([
 ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+*/
 
 //////////////////////////////////////////////////
 
@@ -115,6 +117,7 @@ console.log(letters.join(' - '));
 //////////////////////////////////////////////////
 // Lecture 143: The new at Method
 
+/*
 const arr = [23, 11, 64];
 console.log(arr[0]); // 23
 console.log(arr.at(0)); // 23
@@ -126,3 +129,86 @@ console.log(arr.at(-1)); // 64
 
 console.log('jonas'.at(0)); // j
 console.log('jonas'.at(-1)); // s
+*/
+
+//////////////////////////////////////////////////
+// Lecture 144: Looping Arrays: forEach
+
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log('---- FOR-OF ----');
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- FOR-OF ----');
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: you deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: you withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- FOREACH ----');
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
+// 0: function(200)
+// 1: function(450)
+// 2: function(400)
+// ...
+
+console.log('---- FOREACH ----');
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: you deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: you withdrew ${Math.abs(mov)}`);
+  }
+});
+*/
+
+//////////////////////////////////////////////////
+// Lecture 145: forEach with Maps and Sets
+
+/*
+// Map
+console.log('---- For Maps ----');
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+console.log('');
+
+// Set
+console.log('---- For Sets ----');
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
+});
+*/
+
+//////////////////////////////////////////////////
+// Lecture 147: Creating DOM Elements
