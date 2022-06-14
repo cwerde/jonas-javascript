@@ -236,3 +236,48 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 */
+
+//////////////////////////////////////////////////
+// Lecture 150: The map Method
+
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+const movementsUSDarr = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+console.log(movementsUSDarr);
+
+const movementsUSDfor = [];
+for (const mov of movements) {
+  movementsUSDfor.push(mov * eurToUsd);
+}
+console.log(movementsUSDfor);
+
+// const movementsDescriptions = movements.map((mov, i, arr) => {
+//   return `Movement ${i + 1}: you ${
+//     mov > 0 ? 'deposited' : 'withdrew'
+//   } ${Math.abs(mov)}`;
+
+//   if (mov > 0) {
+//     return `Movement ${i + 1}: you deposited ${mov}`;
+//   } else {
+//     return `Movement ${i + 1}: you withdrew ${Math.abs(mov)}`;
+//   }
+// });
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: you ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
+*/
