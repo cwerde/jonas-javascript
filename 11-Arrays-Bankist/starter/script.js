@@ -281,3 +281,68 @@ const movementsDescriptions = movements.map(
 );
 console.log(movementsDescriptions);
 */
+
+//////////////////////////////////////////////////
+// Lecture 151: Computing Usernames
+
+/*
+// ÖNCEKİ DERSLER
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}€</div>
+    </div>
+  `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
+// GÜNCEL DERS
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 152: The filter Method
+
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// filter
+const deposits = movements.filter(mov => mov > 0);
+const withdrawals = movements.filter(mov => mov < 0);
+
+// for-of
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+const withdrawalsFor = [];
+for (const mov of movements) if (mov < 0) withdrawalsFor.push(mov);
+
+console.log(movements);
+console.log(deposits);
+console.log(depositsFor);
+console.log(withdrawals);
+console.log(withdrawalsFor);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 153: The reduce Method
