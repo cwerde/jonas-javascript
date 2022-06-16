@@ -346,3 +346,171 @@ console.log(withdrawalsFor);
 
 //////////////////////////////////////////////////
 // Lecture 153: The reduce Method
+
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// accumulator -> SNOWBALL
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  // console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+console.log(balance);
+
+const balanceArr = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balanceArr);
+
+let balanceFor = 0;
+for (const mov of movements) balanceFor += mov;
+console.log(balanceFor);
+
+// Maximum Value
+const maxJonas = account1.movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+});
+console.log(maxJonas);
+
+const maxUgur = account1.movements.reduce(
+  (acc, mov) => (acc = acc > mov ? acc : mov),
+  account1.movements[0]
+);
+console.log(maxUgur);
+*/
+
+// ÖNCEKİ DERSLER
+
+/*
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}€</div>
+    </div>
+  `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+*/
+
+// GÜNCEL DERS
+
+/*
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 155: The Magic of the Chaining Methods
+
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+console.log(movements);
+
+// PIPELINE
+const totalDepositUSD = movements
+  .filter(mov => mov > 0)
+  // .map(mov => mov * eurToUsd)
+  .map((mov, i, arr) => {
+    // console.log(arr);
+    return mov * eurToUsd;
+  })
+  .reduce((arr, mov) => arr + mov);
+console.log(totalDepositUSD);
+*/
+
+// ÖNCEKİ DERSLER
+
+/*
+const displayMovements = function (movements) {
+  containerMovements.innerHTML = '';
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}€</div>
+    </div>
+  `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+displayMovements(account1.movements);
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+*/
+
+// GÜNCEL DERS
+
+/*
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  const out = movements
+    .filter(mov => mov <= 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .reduce((acc, int) => (int >= 1 ? acc + int : acc), 0);
+  // .filter(mov => mov >= 1)
+  // .reduce((acc, int) => acc + int, 0);
+
+  console.log(interest);
+  labelSumIn.textContent = `${incomes}€`;
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 157: The find Method
