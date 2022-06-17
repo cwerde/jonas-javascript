@@ -889,3 +889,6 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 */
+
+//////////////////////////////////////////////////
+// Lecture 160: The findIndex Method
