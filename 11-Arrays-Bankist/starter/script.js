@@ -1530,3 +1530,57 @@ btnSort.addEventListener('click', function (e) {
 
 //////////////////////////////////////////////////
 // Lecture 164: More Ways of Creating and Filling Arrays
+
+/*
+console.log([1, 2, 3, 4, 5, 6, 7]); // [1, 2, 3, 4, 5, 6, 7]
+console.log(new Array(1, 2, 3, 4, 5, 6, 7)); // [1, 2, 3, 4, 5, 6, 7]
+
+// Empty arrays + fill method
+const x = new Array(7);
+console.log(x); // [empty × 7]
+// console.log(x.map(() => 5)); // [empty × 7]
+
+// x.fill(1);
+// console.log(x); // [1, 1, 1, 1, 1, 1, 1]
+
+// x.fill(1, 3);
+// console.log(x); // [empty × 3, 1, 1, 1, 1]
+
+x.fill(1, 3, 5);
+console.log(x); // [empty × 3, 1, 1, empty × 2]
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+arr.fill(23, 2, 6);
+console.log(arr); // [1, 2, 23, 23, 23, 23, 7]
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y); // [1, 1, 1, 1, 1, 1, 1]
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z); // [1, 2, 3, 4, 5, 6, 7]
+
+const dice = Array.from(
+  { length: 100 },
+  (_, i) => Math.trunc(Math.random() * 6) + 1
+);
+console.log(dice);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI1 = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI1);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')].map(
+    el => Number(el.textContent.replace('€', ''))
+  );
+  console.log(movementsUI2);
+
+  console.log(document.querySelectorAll('.movements__value'));
+});
+*/
+
+//////////////////////////////////////////////////
+// Lecture 166: Array Methods Practice
