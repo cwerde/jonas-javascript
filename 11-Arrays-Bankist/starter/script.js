@@ -1584,3 +1584,122 @@ labelBalance.addEventListener('click', function () {
 
 //////////////////////////////////////////////////
 // Lecture 166: Array Methods Practice
+
+/////////////////
+// Practice 1 //
+///////////////
+
+/*
+const bankDepositSumA = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .filter(mov => mov > 0)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(bankDepositSumA);
+
+const bankDepositSumB = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(bankDepositSumB);
+*/
+
+/////////////////
+// Practice 2 //
+///////////////
+
+/*
+const numDeposits1000A = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov >= 1000).length;
+console.log(numDeposits1000A);
+
+const numDeposits1000B = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => (acc += 1 ? mov >= 1000 : acc), 0);
+console.log(numDeposits1000B);
+
+const numDeposits1000C = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => (mov >= 1000 ? acc + 1 : acc), 0);
+console.log(numDeposits1000C);
+
+// Prefixed ++ operator
+let a = 10;
+console.log(++a);
+console.log(a);
+*/
+
+/////////////////
+// Practice 3 //
+///////////////
+
+/*
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, mov) => {
+      // mov > 0 ? (sums.deposits += mov) : (sums.withdrawals += mov);
+      sums[mov > 0 ? 'deposits' : 'withdrawals'] += mov;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+console.log(deposits, withdrawals);
+*/
+
+/////////////////
+// Practice 4 //
+///////////////
+
+/*
+// this is a nice title -> This Is a Nice Title
+const convertTitleCase = function (title) {
+  const exceptions = [
+    'and',
+    'as',
+    'but',
+    'for',
+    'if',
+    'nor',
+    'or',
+    'so',
+    'yet',
+    'a',
+    'an',
+    'the',
+    'in',
+    'on',
+    'at',
+    'by',
+    'for',
+    'of',
+    'off',
+    'per',
+    'to',
+    'up',
+    'via',
+    'with',
+  ];
+
+  const capitalize = word => word[0].toUpperCase() + word.slice(1);
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map((word, i) =>
+      i === 0
+        ? capitalize(word)
+        : exceptions.includes(word)
+        ? word
+        : capitalize(word)
+    )
+    .join(' ');
+
+  return titleCase;
+};
+
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+*/
