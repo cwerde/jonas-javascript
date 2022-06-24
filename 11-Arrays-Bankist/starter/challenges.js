@@ -215,3 +215,45 @@ const dogs = [
 
 GOOD LUCK 😀
 */
+
+// Task 1
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+dogs.map(dog => (dog.recommendedFood = dog.weight ** 0.75 * 28));
+
+// Task 2
+const sarah = dogs.find(dog => dog.owners.find(x => x === 'Sarah'));
+
+if (sarah.curFood < sarah.recommendedFood * 0.9)
+  console.log("Sarah and John and Michael's dogs eat too little!");
+else if (sarah.curFood > sarah.recommendedFood * 1.1)
+  console.log("Sarah and John and Michael's dogs eat too much!");
+else console.log('Recommended.');
+
+// Task 3
+
+const ownersEatTooMuch = [];
+const ownersEatTooLittle = [];
+
+dogs.forEach(dog => {
+  if (dog.curFood < dog.recommendedFood * 0.9)
+    ownersEatTooLittle.push(dog.owners);
+  else if (dog.curFood > dog.recommendedFood * 1.1)
+    ownersEatTooMuch.push(dog.owners);
+});
+
+console.log(`Owners Eat Too Much ${ownersEatTooMuch}`);
+console.log(`Owners Eat Too Little ${ownersEatTooLittle}`);
+
+// Task 4
+console.log(`${ownersEatTooMuch.flat().join(' and ')}'s dogs eat too much!`);
+console.log(
+  `${ownersEatTooLittle.flat().join(' and ')}'s dogs eat too little!`
+);
+
+// Task 5
