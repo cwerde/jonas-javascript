@@ -81,3 +81,100 @@ document.querySelector('.btn--close-cookie').addEventListener('click', () => {
 
 //////////////////////////////////////////////////
 // Lecture 187: Styles, Attributes and Classes
+
+// Previous Lecture
+/*
+const header = document.querySelector('.header');
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML = `<span>We use cookies for improved functionality and analytics.</span> <button class="btn btn--close-cookie">Got it!</button>`;
+
+header.append(message);
+
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  message.remove();
+});
+*/
+
+// Styles
+/*
+message.style.backgroundColor = '#37383d';
+message.style.width = '100vw';
+
+console.log(message.style.height); // ""
+console.log(message.style.color); // ""
+console.log(message.style.backgroundColor); // YES
+
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+*/
+
+// Standard Attributes
+/*
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+*/
+
+// Non-standard Attributes
+/*
+console.log(logo.designer);
+console.log(logo.getAttribute('designer'));
+console.log(logo.getAttribute('src'));
+
+logo.setAttribute('company', 'Bankist');
+
+const linkTwitter = document.querySelector('.twitter-link');
+console.log(linkTwitter.href);
+console.log(linkTwitter.getAttribute('href'));
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+*/
+
+// Data Attributes
+/*
+console.log(logo.dataset.versionNumber);
+*/
+
+// Classes
+/*
+logo.classList.add('c');
+logo.classList.remove('c');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+*/
+
+// Don't use
+/*
+logo.className = 'jonas';
+*/
+
+//////////////////////////////////////////////////
+// Lecture 188: Implementing Smooth Scrolling
+
+const header = document.querySelector('.header');
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML = `<span>We use cookies for improved functionality and analytics.</span> <button class="btn btn--close-cookie">Got it!</button>`;
+
+header.append(message);
+
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  message.remove();
+});
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '100vw';
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
+document.documentElement.style.setProperty('--color-primary', 'orangered');
