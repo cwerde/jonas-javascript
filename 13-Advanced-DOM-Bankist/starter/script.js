@@ -238,19 +238,50 @@ h1.onmouseenter = function (e) {
 //////////////////////////////////////////////////
 // Lecture 191: Event Propagation in Practice
 
+/*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+*/
 
-const h1 = document.querySelector('h1');
+/*
+// rgb(255,255,255)
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
 
-const alertH1 = function (e) {
-  alert('addEventListener: Great! You are reading the heading :D');
-};
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
 
-h1.addEventListener('mouseenter', alertH1);
+  // Stop propagation
+  // e.stopPropagation();
+});
 
-setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('CONTAINER', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+});
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('NAV', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+});
+*/
+
+//////////////////////////////////////////////////
+// Lecture 192: Event Delegation: Implementing Page Navigation
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
