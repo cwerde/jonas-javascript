@@ -36,6 +36,84 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// // // // // //
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+// // // // // //
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  // Matching strategy
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+// // // // // //
+
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const clicked = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  tabsContent.forEach(content =>
+    content.classList.remove('operations__content--active')
+  );
+
+  // Activate tab
+  clicked.classList.add('operations__tab--active');
+
+  // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
+// // // // // //
+
+// Menu fade animation
+const nav = document.querySelector('.nav');
+
+const handleOver = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(sibling => {
+      if (sibling !== link) sibling.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+// Passing "arguement" into handler
+nav.addEventListener('mouseover', handleOver.bind(0.5));
+nav.addEventListener('mouseout', handleOver.bind(1));
+
+let person = {
+  name: 'John Doe',
+  getName: function () {
+    console.log(this.name);
+  },
+};
+
 //////////////////////////////////////////////////
 // Lecture 186: Selecting, Creating, and Deleting Elements
 
@@ -81,20 +159,6 @@ document.querySelector('.btn--close-cookie').addEventListener('click', () => {
 
 //////////////////////////////////////////////////
 // Lecture 187: Styles, Attributes and Classes
-
-// Previous Lecture
-/*
-const header = document.querySelector('.header');
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML = `<span>We use cookies for improved functionality and analytics.</span> <button class="btn btn--close-cookie">Got it!</button>`;
-
-header.append(message);
-
-document.querySelector('.btn--close-cookie').addEventListener('click', () => {
-  message.remove();
-});
-*/
 
 // Styles
 /*
@@ -239,15 +303,6 @@ h1.onmouseenter = function (e) {
 // Lecture 191: Event Propagation in Practice
 
 /*
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-*/
-
-/*
 // rgb(255,255,255)
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
@@ -279,15 +334,6 @@ document.querySelector('.nav').addEventListener('click', function (e) {
 //////////////////////////////////////////////////
 // Lecture 192: Event Delegation: Implementing Page Navigation
 
-/*
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-*/
-
 // Page nagivation
 /*
 document.querySelectorAll('.nav__link').forEach(function (el) {
@@ -318,7 +364,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 //////////////////////////////////////////////////
 // Lecture 193: DOM Traversing
 
-// Previous Lectures
+// PREVIOUS LECTURESS
 /*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
@@ -337,7 +383,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 });
 */
 
-// This Lecture
+// THIS LECTURE
 /*
 const h1 = document.querySelector('h1');
 
@@ -372,7 +418,7 @@ console.log(h1.parentElement.children);
 //////////////////////////////////////////////////
 // Lecture 194: Building a Tabbed Component
 
-// Previous Lectures
+// PREVIOUS LECTURESS
 /*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
@@ -391,7 +437,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 });
 */
 
-// This Lecture
+// THIS LECTURE
 /*
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
@@ -423,46 +469,37 @@ tabsContainer.addEventListener('click', function (e) {
 //////////////////////////////////////////////////
 // Lecture 195: Passing Arguments to Event Handlers
 
-// Previous Lectures
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+/*
+// Menu fade animation
+const nav = document.querySelector('.nav');
 
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  // Matching strategy
-  e.preventDefault();
+const handleOver = function (e) {
   if (e.target.classList.contains('nav__link')) {
-    const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(sibling => {
+      if (sibling !== link) sibling.style.opacity = this;
+    });
+    logo.style.opacity = this;
   }
-});
+};
 
-// Tabbed component
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
+// Passing "arguement" into handler
+// nav.addEventListener('mouseover', e => handleOver(e, 0.5));
+// nav.addEventListener('mouseout', e => handleOver(e, 1));
 
-tabsContainer.addEventListener('click', function (e) {
-  e.preventDefault();
-  const clicked = e.target.closest('.operations__tab');
+nav.addEventListener('mouseover', handleOver.bind(0.5));
+nav.addEventListener('mouseout', handleOver.bind(1));
 
-  // Guard clause
-  if (!clicked) return;
+let person = {
+  name: 'John Doe',
+  getName: function () {
+    console.log(this.name);
+  },
+};
+*/
 
-  // Remove active classes
-  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
-  tabsContent.forEach(content =>
-    content.classList.remove('operations__content--active')
-  );
-
-  // Activate tab
-  clicked.classList.add('operations__tab--active');
-
-  // Activate content area
-  document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add('operations__content--active');
-});
+//////////////////////////////////////////////////
+// Lecture 196: Implementing a Sticky Navigation: The Scroll Event
