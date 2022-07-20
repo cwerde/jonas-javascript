@@ -39,10 +39,10 @@ document.addEventListener('keydown', function (e) {
 // // // // // //
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+const firstSection = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
+  firstSection.scrollIntoView({ behavior: 'smooth' });
 });
 
 // // // // // //
@@ -113,6 +113,24 @@ let person = {
     console.log(this.name);
   },
 };
+
+// // // // //
+// Sticky navigation
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(header);
 
 //////////////////////////////////////////////////
 // Lecture 186: Selecting, Creating, and Deleting Elements
@@ -228,12 +246,12 @@ logo.className = 'jonas';
 
 /*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+const firstSection = document.querySelector('#section--1');
 */
 
 /*
 btnScrollTo.addEventListener('click', function (e) {
-  const s1coords = section1.getBoundingClientRect();
+  const s1coords = firstSection.getBoundingClientRect();
   
   console.log(s1coords);
 
@@ -265,7 +283,7 @@ btnScrollTo.addEventListener('click', function (e) {
 
 /*
 btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
+  firstSection.scrollIntoView({ behavior: 'smooth' });
 });
 */
 
@@ -273,13 +291,6 @@ btnScrollTo.addEventListener('click', function (e) {
 // Lecture 189: Types of Events and Event Handlers
 
 /*
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
 const h1 = document.querySelector('h1');
 
 const alertH1 = function (e) {
@@ -364,26 +375,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 //////////////////////////////////////////////////
 // Lecture 193: DOM Traversing
 
-// PREVIOUS LECTURESS
-/*
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  // Matching strategy
-  e.preventDefault();
-  if (e.target.classList.contains('nav__link')) {
-    const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  }
-});
-*/
-
-// THIS LECTURE
 /*
 const h1 = document.querySelector('h1');
 
@@ -418,26 +409,6 @@ console.log(h1.parentElement.children);
 //////////////////////////////////////////////////
 // Lecture 194: Building a Tabbed Component
 
-// PREVIOUS LECTURESS
-/*
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function (e) {
-  section1.scrollIntoView({ behavior: 'smooth' });
-});
-
-document.querySelector('.nav__links').addEventListener('click', function (e) {
-  // Matching strategy
-  e.preventDefault();
-  if (e.target.classList.contains('nav__link')) {
-    const id = e.target.getAttribute('href');
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  }
-});
-*/
-
-// THIS LECTURE
 /*
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
@@ -503,3 +474,70 @@ let person = {
 
 //////////////////////////////////////////////////
 // Lecture 196: Implementing a Sticky Navigation: The Scroll Event
+
+// Sticky navigation
+/*
+const initialCoords = firstSection.getBoundingClientRect();
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+/*
+const initialCoordsTop =
+  firstSection.getBoundingClientRect().top + window.scrollY;
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > initialCoordsTop) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+/*
+window.addEventListener('scroll', function () {
+  if (firstSection.getBoundingClientRect().top < 0) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+//////////////////////////////////////////////////
+// Lecture 197: A Better Way: The Intersection Observer API
+
+// Sticky navigation: Intersection Observer API
+/*
+const obsCallback = function (entries, observer) {
+  entries.forEach(entry => console.log(entry));
+};
+
+const obsOptions = {
+  root: null,
+  // threshold: 0.1,
+  threshold: [0, 0.2],
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(firstSection);
+*/
+
+/*
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(header);
+*/
+
+//////////////////////////////////////////////////
+// Lecture 198:  Revealing Elements on Scroll
