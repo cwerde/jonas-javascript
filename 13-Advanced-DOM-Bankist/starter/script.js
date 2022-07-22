@@ -151,7 +151,7 @@ const sectionObserver = new IntersectionObserver(revealObserver, {
 });
 
 allSections.forEach(function (section) {
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden');
   sectionObserver.observe(section);
 });
 
@@ -651,4 +651,75 @@ imgTargets.forEach(img => imgObserver.observe(img));
 */
 
 //////////////////////////////////////////////////
-// Lecture 200: Building a Slider Component: Part 1
+// Lecture 200 - 201: Building a Slider Component
+
+// Slider
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+
+let curSlide = 0;
+const maxSlides = slides.length;
+
+// const slider = document.querySelector('.slider');
+// slider.style.transform = 'scale(0.5) translateX(-800px)';
+// slider.style.overflow = 'visible';
+
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class='dots_dot' data-slide='${i}'></button>`
+    );
+  });
+};
+createDots();
+
+const goToSlide = function (slide) {
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
+};
+goToSlide(0);
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlides - 1;
+  } else {
+    curSlide--;
+  }
+
+  goToSlide(curSlide);
+};
+
+const nextSlide = function () {
+  if (curSlide === maxSlides - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
+  goToSlide(curSlide);
+};
+
+// Previous slide
+btnLeft.addEventListener('click', prevSlide);
+
+// Next slide
+btnRight.addEventListener('click', nextSlide);
+
+document.addEventListener('keydown', function (e) {
+  // if (e.key === 'ArrowLeft') prevSlide();
+  // if (e.key === 'ArrowRight') nextSlide();
+
+  e.key === 'ArrowLeft' && prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
+
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+  }
+});
