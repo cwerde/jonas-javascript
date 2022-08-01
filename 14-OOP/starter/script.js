@@ -140,6 +140,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -219,3 +220,39 @@ console.log(jessica.age);
 
 const walter = new PersonCl('Walter White', 1965);
 */
+
+////////////////////////////////////////////////////////////
+// 215. Static Methods
+
+/*
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+Person.hey = function () {
+  console.log('Hey there!');
+  console.log(this);
+};
+Person.hey();
+
+// Uncaught TypeError: jonas.hey is not a function
+// const jonas = new Person('Jonas', 1991);
+// jonas.hey();
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  static hey() {
+    console.log('Hey there!');
+    console.log(this);
+  }
+}
+
+PersonCl.hey();
+*/
+
+////////////////////////////////////////////////////////////
+// 216. Object.create
