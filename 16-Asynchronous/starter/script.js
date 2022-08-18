@@ -411,3 +411,18 @@ btn.addEventListener('click', function () {
 ////////////////////////////////////////////////////////////
 
 // 258. The Event Loop in Practice
+/*
+console.log('Timer start');
+setTimeout(() => console.log('0 sec timer'), 0);
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 100000; i++) console.log(res);
+});
+
+console.log('Test end');
+*/
+
+////////////////////////////////////////////////////////////
+
+// 259. Building a Simple Promise
