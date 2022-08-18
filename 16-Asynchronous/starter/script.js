@@ -250,3 +250,164 @@ getCountryData('portugal');
 ////////////////////////////////////////////////////////////
 
 // 254. Handling Rejected Promises
+
+/*
+const renderCountry = function (data, className = '') {
+  const language = Object.values(data.languages)[0];
+  const currency = Object.values(...Object.values(data.currencies))[0];
+
+  // prettier-ignore
+  const html = `
+    <article class="country ${className}">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+        <p class="country__row"><span>🗣️</span>${language}</p>
+        <p class="country__row"><span>💰</span>${currency}</p>
+      </div>
+    </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  // countriesContainer.style.opacity = 1;
+};
+
+const renderError = function (message) {
+  countriesContainer.insertAdjacentText('beforeend', message);
+  // countriesContainer.style.opacity = 1;
+};
+
+const getCountryData = function (country) {
+  // Country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) return;
+
+      // Country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => {
+      renderCountry(data[0], 'neighbour');
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) return;
+
+      // Country 3
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(err => {
+      console.error(`${err}`);
+      renderError(`Something went wrong: ${err.message}. Try again!`);
+    })
+    .finally(() => (countriesContainer.style.opacity = 1));
+};
+
+btn.addEventListener('click', function () {
+  getCountryData('portugal');
+});
+
+getCountryData('horolop');
+*/
+
+////////////////////////////////////////////////////////////
+
+// 255. Throwing Errors Manually
+
+/*
+const renderCountry = function (data, className = '') {
+  const language = Object.values(data.languages)[0];
+  const currency = Object.values(...Object.values(data.currencies))[0];
+
+  // prettier-ignore
+  const html = `
+    <article class="country ${className}">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+        <p class="country__row"><span>🗣️</span>${language}</p>
+        <p class="country__row"><span>💰</span>${currency}</p>
+      </div>
+    </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  // countriesContainer.style.opacity = 1;
+};
+
+const renderError = function (message) {
+  countriesContainer.insertAdjacentText('beforeend', message);
+  // countriesContainer.style.opacity = 1;
+};
+
+const getJSON = function (url, errMessage = 'Something went wrong: ') {
+  return fetch(url).then(function (response) {
+    if (!response.ok) {
+      throw new Error(`${errMessage} (${response.status})`);
+    }
+
+    return response.json();
+  });
+};
+
+const getCountryData = function (country) {
+  // Country 1
+
+  getJSON(
+    `https://restcountries.com/v3.1/name/${country}`,
+    'Country not found: '
+  )
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) throw new Error('No neighbour found');
+
+      // Country 2
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country not found: '
+      );
+    })
+    .then(data => {
+      renderCountry(data[0], 'neighbour');
+      const neighbour = data[0].borders?.[0];
+      // const neighbour = 'horolop';
+
+      if (!neighbour) throw new Error('No neighbour found');
+
+      // Country 3
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country not found: '
+      );
+    })
+    .then(data => renderCountry(data[0], 'neighbour'))
+    .catch(err => {
+      console.error(`${err}`);
+      renderError(`Something went wrong: ${err.message}. Try again!`);
+    })
+    .finally(() => (countriesContainer.style.opacity = 1));
+};
+
+btn.addEventListener('click', function () {
+  getCountryData('portugal');
+});
+
+// getCountryData('horolop');
+// getCountryData('australia');
+*/
+
+////////////////////////////////////////////////////////////
+
+// 258. The Event Loop in Practice
