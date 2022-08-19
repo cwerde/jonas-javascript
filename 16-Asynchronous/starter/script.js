@@ -426,3 +426,112 @@ console.log('Test end');
 ////////////////////////////////////////////////////////////
 
 // 259. Building a Simple Promise
+
+/*
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is drawing 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 💰');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(1)
+  .then(() => {
+    console.log('1 second passed.');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('2 seconds passed.');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 seconds passed.');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('4 seconds passed.');
+  });
+
+Promise.resolve('Success!').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+*/
+
+////////////////////////////////////////////////////////////
+
+// 260. Promisifying the Geolocation API
+
+/*
+console.log('Getting position...');
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(position => resolve(position), error => reject(error));
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const renderCountry = function (data) {
+  const language = Object.values(data.languages)[0];
+  const currency = Object.values(...Object.values(data.currencies))[0];
+
+  // prettier-ignore
+  const html = `
+    <article class="country">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+        <p class="country__row"><span>🗣️</span>${language}</p>
+        <p class="country__row"><span>💰</span>${currency}</p>
+      </div>
+    </article>
+    `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+};
+
+const whereAmI = function () {
+  getPosition()
+    .then(function (position) {
+      const { latitude: lat, longitude: lng } = position.coords;
+      return fetch(
+        `https://geocode.xyz/${lat},${lng}?geoit=json&auth=118290526441431171169x74597`
+      );
+    })
+    .then(function (response) {
+      if (!response.ok)
+        throw new Error(`Problem with geocoding ${response.status}`);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(`You are in ${data.city}, ${data.country}.`);
+      return fetch(`https://restcountries.com/v3.1/name/${data.country}`);
+    })
+    .then(function (response) {
+      if (!response.ok) throw new Error(`Country not found ${response.status}`);
+      return response.json();
+    })
+    .then(data => renderCountry(data[0]))
+    .catch(error => console.error(`${error.message}`))
+    .finally(() => (countriesContainer.style.opacity = 1));
+};
+
+btn.addEventListener('click', whereAmI);
+*/
+
+////////////////////////////////////////////////////////////
+
+// 262. Consuming Promises with Async/Await
