@@ -535,3 +535,127 @@ btn.addEventListener('click', whereAmI);
 ////////////////////////////////////////////////////////////
 
 // 262. Consuming Promises with Async/Await
+
+/*
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const renderCountry = function (data) {
+  const language = Object.values(data.languages)[0];
+  const currency = Object.values(...Object.values(data.currencies))[0];
+
+  // prettier-ignore
+  const html = `
+    <article class="country">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+        <p class="country__row"><span>🗣️</span>${language}</p>
+        <p class="country__row"><span>💰</span>${currency}</p>
+      </div>
+    </article>
+    `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const whereAmI = async function () {
+  // Geolocation
+  const pos = await getPosition();
+  const { latitude: lat, longitude: lng } = pos.coords;
+
+  // Reverse geocoding
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const dataGeo = await resGeo.json();
+  console.log(dataGeo);
+
+  // Country data
+  const res = await fetch(
+    `https://restcountries.com/v3.1/name/${dataGeo.country}`
+  );
+  console.log(res);
+
+  const data = await res.json();
+  console.log(data[0]);
+
+  renderCountry(data[0]);
+};
+whereAmI();
+console.log('FIRST');
+*/
+
+////////////////////////////////////////////////////////////
+
+// 263. Error Handling With try...catch
+
+/*
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const renderCountry = function (data) {
+  const language = Object.values(data.languages)[0];
+  const currency = Object.values(...Object.values(data.currencies))[0];
+
+  // prettier-ignore
+  const html = `
+    <article class="country">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)} people</p>
+        <p class="country__row"><span>🗣️</span>${language}</p>
+        <p class="country__row"><span>💰</span>${currency}</p>
+      </div>
+    </article>
+    `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const renderError = function (message) {
+  countriesContainer.insertAdjacentText('beforeend', message);
+  countriesContainer.style.opacity = 1;
+};
+
+const whereAmI = async function () {
+  try {
+    // Geolocation
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+
+    // Reverse geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!resGeo.ok) throw new Error('Problem getting location data!');
+    const dataGeo = await resGeo.json();
+
+    // Country data
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${dataGeo.country}`
+    );
+    if (!resGeo.ok) throw new Error('Problem getting country!');
+    const data = await res.json();
+
+    renderCountry(data[0]);
+  } catch (err) {
+    console.error(`💥 ${err.message} 💥`);
+    renderError(`💥 Something went wrong 💥: ${err.message}`);
+  }
+};
+whereAmI();
+whereAmI();
+whereAmI();
+console.log('FIRST');
+*/
+
+////////////////////////////////////////////////////////////
+
+// 264. Returning Values from Async Functions
