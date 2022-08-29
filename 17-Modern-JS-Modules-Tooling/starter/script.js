@@ -142,3 +142,68 @@ console.log(state, stateClone, stateDeepClone);
 
 ////////////////////////////////////////////////////////////
 // 278. Bundling With Parcel and NPM Scripts
+
+/*
+import add, { cart } from './shoppingCart.js';
+add('pizza', 2);
+add('bread', 5);
+add('apples', 4);
+console.log(cart);
+
+import cloneDeep from 'lodash-es';
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+
+  user: {
+    loggedIn: true,
+  },
+};
+console.log(state);
+
+const stateClone = Object.assign({}, state);
+console.log(stateClone);
+
+const stateDeepClone = cloneDeep(state);
+console.log(stateDeepClone);
+
+state.user.loggedIn = 'false';
+console.log(state, stateClone, stateDeepClone);
+
+if (module.hot) module.hot.accept();
+*/
+
+////////////////////////////////////////////////////////////
+// 279. Configuring Babel and Polyfilling
+
+import add, { cart } from './shoppingCart.js';
+add('pizza', 2);
+add('bread', 5);
+add('apples', 4);
+console.log(cart);
+
+import cloneDeep from 'lodash-es';
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+
+  user: {
+    loggedIn: true,
+  },
+};
+console.log(state);
+
+const stateClone = Object.assign({}, state);
+console.log(stateClone);
+
+const stateDeepClone = cloneDeep(state);
+console.log(stateDeepClone);
+
+state.user.loggedIn = 'false';
+console.log(state, stateClone, stateDeepClone);
+
+if (module.hot) module.hot.accept();
