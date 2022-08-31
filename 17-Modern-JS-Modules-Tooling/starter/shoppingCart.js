@@ -59,6 +59,7 @@ export default function (product, quantity) {
 ////////////////////////////////////////////////////////////
 // 279. Configuring Babel and Polyfilling
 
+/*
 export const cart = [];
 
 export const addToCart = function (product, quantity) {
@@ -74,3 +75,4 @@ export default function (product, quantity) {
   cart.push({ product, quantity });
   console.log(`${quantity} ${product} added to cart.`);
 }
+*/
