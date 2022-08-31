@@ -178,32 +178,29 @@ if (module.hot) module.hot.accept();
 ////////////////////////////////////////////////////////////
 // 279. Configuring Babel and Polyfilling
 
-import add, { cart } from './shoppingCart.js';
+/*
+import add, { cart, quantity } from './shoppingCart.js';
 add('pizza', 2);
 add('bread', 5);
 add('apples', 4);
 console.log(cart);
 
-import cloneDeep from 'lodash-es';
-const state = {
-  cart: [
-    { product: 'bread', quantity: 5 },
-    { product: 'pizza', quantity: 5 },
-  ],
-
-  user: {
-    loggedIn: true,
-  },
-};
-console.log(state);
-
-const stateClone = Object.assign({}, state);
-console.log(stateClone);
-
-const stateDeepClone = cloneDeep(state);
-console.log(stateDeepClone);
-
-state.user.loggedIn = 'false';
-console.log(state, stateClone, stateDeepClone);
-
 if (module.hot) module.hot.accept();
+
+class Person {
+  #greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.#greeting}, ${this.name}!`);
+  }
+}
+const jonas = new Person('Jonas');
+
+console.log('Jonas' ?? null);
+console.log(cart.find(el => el.quantity >= 2));
+Promise.resolve('TEST').then(x => console.log(x));
+
+import 'core-js/stable';
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/promise';
+*/
