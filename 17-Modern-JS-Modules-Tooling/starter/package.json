@@ -9,11 +9,13 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
+    "build": "parcel build index.html --dist-dir ./dist",
+    "server": "live-server"
   },
   "author": "Nika",
   "license": "ISC",
   "devDependencies": {
+    "live-server": "^1.2.2",
     "parcel": "^2.7.0"
   },
   "dependencies": {
